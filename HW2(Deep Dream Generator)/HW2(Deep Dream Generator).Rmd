@@ -1,0 +1,54 @@
+---
+title: "HW2"
+author: "董宸賓"
+date: "2023-10-15"
+description: |
+  董宸賓 法律一 112601033 hw2(Deep Dream Generator)
+
+output:
+  distill::distill_article: 
+   toc: False
+   number_sections: true
+   theme: "css1.css"
+knit: pagedown::chrome_print
+main-color: "#0F2E3D"
+---
+## picture1
+
+### prompt:a duck lawyer who works for duck company
+
+![](ducklawayer1.jpeg){width="60%"}
+
+\pagebreak
+
+## picture2
+
+### prompt:add a hat for the lawyer
+
+![](ducklawyer2.jpeg){width="60%"}
+
+## picture3
+
+### prompt:add a cap for the lawyer
+
+![](ducklawyer3.jpeg){width="60%"}
+
+\pagebreak
+
+## picture 4
+
+### prompt:a duck lawyer who works for duck company
+
+
+<table>
+  <tr>
+    <th width="50%">Base</th>
+    <th width="50%">Result</th>
+  </tr>
+  <tr>
+    <td><img src = "baseimage.jpeg" width="100%"></td>
+    <td><img src = "duck lawyer4.jpeg" width="100%"></td>
+  </tr>
+</table>
+
+
