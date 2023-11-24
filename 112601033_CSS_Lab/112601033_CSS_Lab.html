@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first CSS stylesheet</title>
+    <link rel="stylesheet" href="112601033_CSS_Lab.css">
+</head>
+<body style="color: black; background-color: white;" font-family="Arial, sans-serif">
+  
+  <ul class="navbar" style="position: relative; top: 0em; left: 0em; width: 120em;">
+        <li><a href="#home">國中</a></li>
+        <li><a href="#news">高中</a></li>
+        <li><a href="#news">大學</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">個人資料</a>
+            <div class="dropdown-content">
+                <a href="#">系級</a>
+                <a href="#">學號</a>
+                <a href="#">成績</a>
+            </div>
+        </li>
+    </ul>
+
+    <h1 style="font-family: Georgia, serif;">My first style page</h1>
+
+    <p>這個網頁</p>
+    <p>其實沒有</p>
+    <p>任何有用的資訊</p>
+
+    
+    <style>
+        @media all {
+            /* Styles for all media types */
+            body {
+                color: black;
+                background-color: white;
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                font-family: Georgia, serif;
+            }
+
+            ul.navbar {
+                position: relative;
+                top: 2em;
+                left: 2em;
+                width: 10em;
+            }
+        }
+
+        @media print {
+            /* Styles for print media */
+            body {
+                color: black;
+                background-color: white;
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                font-family: Georgia, serif;
+            }
+
+            ul.navbar {
+                position: relative;
+                top: 2em;
+                left: 2em;
+                width: 10em;
+            }
+        }
+    </style>
+
+</body>
+</html>
