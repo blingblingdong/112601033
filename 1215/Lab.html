@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    button {
+      font-size: 16px;
+      margin: 10px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // 提示用戶一開始輸入兩個數字
+    var firstInput = prompt("請輸入第一個數字：");
+    var secondInput = prompt("請輸入第二個數字：");
+
+    // 轉換輸入的字串為數字
+    var num1 = parseFloat(firstInput);
+    var num2 = parseFloat(secondInput);
+
+    // 檢查輸入是否有效
+    if (!isNaN(num1) && !isNaN(num2)) {
+      // 比較數字並執行相應的操作
+      if (num1 > num2) {
+        document.body.style.backgroundColor = "lightblue";
+        alert(firstInput + " > " + secondInput);
+      } else if (num1 < num2) {
+        document.body.style.backgroundColor = "orange";
+        alert(secondInput + " > " + firstInput);
+      } else {
+        document.body.style.backgroundColor = "lightyellow";
+        alert(secondInput + " == " + firstInput);
+      }
+    } else {
+      alert("請輸入有效的數字！");
+    }
+  </script>
+
+  <!-- 兩個按鈕，每個按鈕點擊時只顯示相應的數字 -->
+  <button onclick="alert('第一個數字：' + firstInput)">顯示第一個數字</button>
+  <button onclick="alert('第二個數字：' + secondInput)">顯示第二個數字</button>
+</body>
+</html>
