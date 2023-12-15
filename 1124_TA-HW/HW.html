@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜數字遊戲</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function startGame() {
+        // 生成1到10之間的隨機數字
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+        // 使用者猜測的次數
+        let attempts = 0;
+
+        // 遊戲主迴圈
+        while (true) {
+            // 使用者輸入猜測的數字
+            const userGuess = prompt('請猜一個1到10之間的數字：');
+
+            // 如果使用者按下取消或輸入空白，結束遊戲
+            if (userGuess === null || userGuess.trim() === '') {
+                alert('遊戲結束。');
+                break;
+            }
+
+            // 將使用者輸入的值轉換為數字
+            const guessNumber = parseInt(userGuess);
+
+            // 增加猜測次數
+            attempts++;
+
+            // 判斷使用者是否猜對
+            if (guessNumber === randomNumber) {
+                alert(`恭喜你猜對了！你總共猜了 ${attempts} 次。`);
+                break;
+            } else {
+                alert('猜錯了，再試一次！');
+            }
+        }
+    }
+
+    // 在網頁載入完成後啟動遊戲
+    window.onload = startGame;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數字相加</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="openDialog('dialog1')">打開對話框1</button>
+<button onclick="openDialog('dialog2')">打開對話框2</button>
+
+<div id="overlay"></div>
+
+<div id="dialog1" class="modal">
+    <div>請輸入數字</div>
+    <input type="text" id="input1" placeholder="請輸入第一個數字">
+    <button onclick="closeDialog('dialog1')">確認</button>
+</div>
+
+<div id="dialog2" class="modal">
+    <div>請輸入數字</div>
+    <input type="text" id="input2" placeholder="請輸入第二個數字">
+    <button onclick="closeDialog('dialog2')">確認</button>
+</div>
+
+<script>
+    function openDialog(dialogId) {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById(dialogId).style.display = 'block';
+    }
+
+    function closeDialog(dialogId) {
+        var userInput = document.getElementById('input' + dialogId[dialogId.length - 1]).value;
+        var parsedInput = parseInt(userInput);
+
+        if (!isNaN(parsedInput)) {
+            document.getElementById(dialogId).style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+
+            // 這裡可以根據需要執行其他邏輯，例如存儲數字或計算結果
+            calculateAndAlert();
+        } else {
+            alert('請輸入有效的數字');
+        }
+    }
+
+    function calculateAndAlert() {
+        var num1 = parseInt(document.getElementById('input1').value);
+        var num2 = parseInt(document.getElementById('input2').value);
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+            var result = num1 + num2;
+            alert('你輸入的兩數字相加為 ' + result);
+        }
+    }
+</script>
+
+</body>
+</html>

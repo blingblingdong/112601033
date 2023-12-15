@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>對話欄</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body onload="openDialog()">
+
+<script>
+    function openDialog() {
+        var userName = prompt("enter");
+        if (userName !== null && userName.trim() !== '') {
+            var currentDate = new Date().toLocaleDateString();
+            alert('Hello ' + userName + ' ' + currentDate);
+        }
+    }
+</script>
+
+</body>
+</html>
