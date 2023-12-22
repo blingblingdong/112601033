@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dice Roll Statistics</title>
+<style>
+  #dice-container img {
+    width: 50px;
+    height: 50px;
+  }
+    #frequencyTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #frequencyTable td, #frequencyTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #frequencyTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #frequencyTable tr:hover {background-color: #ddd;}
+  
+  tr:nth-child(1) td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+</style>
+</head>
+<body>
+<div id="dice-container"></div>
+<button id="rollButton">Roll Dice</button>
+<table id="frequencyTable">
+  <tr>
+    <th>Face</th>
+    <th>Percent</th>
+  </tr>
+  <!-- Rows for dice faces will be inserted here by JavaScript -->
+</table>
+<script>
+// This script will generate the functionality to roll dice and calculate probabilities
+
+// Function to roll dice and update the display
+function rollDice() {
+  let results = {};
+  // Initialize results object
+  for (let i = 1; i <= 6; i++) {
+    results[i] = 0;
+  }
+
+  // Roll 12 dice
+  let diceContainer = document.getElementById('dice-container');
+  diceContainer.innerHTML = ''; // Clear previous dice
+  for (let i = 0; i < 12; i++) {
+    let face = Math.floor(Math.random() * 6) + 1;
+    results[face]++;
+    let dieImg = document.createElement('img');
+    dieImg.src = `die/die${face}.png`; // Replace with actual path
+    diceContainer.appendChild(dieImg);
+  }
+
+  updateFrequencyTable(results);
+}
+
+// Function to update the frequency table with percentages
+function updateFrequencyTable(results) {
+  let table = document.getElementById('frequencyTable');
+  let tbody = table.querySelector('tbody');
+
+  // Clear previous table rows
+  tbody.innerHTML = '';
+
+  // Add headers
+  let headerRow = table.insertRow(0);
+  let headerCell1 = headerRow.insertCell(0);
+  let headerCell2 = headerRow.insertCell(1);
+  headerCell1.innerHTML = 'Face';
+  headerCell2.innerHTML = 'Percent';
+
+  // Add data rows
+  Object.keys(results).forEach(face => {
+    let percent = (results[face] / 12) * 100;
+    let row = table.insertRow(-1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    cell1.innerHTML = face;
+    cell2.innerHTML = percent.toFixed(2);
+  });
+}
+
+
+// Event listener for the roll button
+document.getElementById('rollButton').addEventListener('click', rollDice);
+
+// Load the dice images on initial load
+window.addEventListener('load', rollDice);
+</script>
+</body>
+</html>

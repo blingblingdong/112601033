@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    perspective: 1000px;
+    margin: 0;
+    overflow: hidden; /* 防止內容超出瀏覽器視窗時滾動 */
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333; /* 為標題添加背景色 */
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.module {
+    width: 18%;
+    cursor: pointer;
+    perspective: 1000px; /* 3D翻轉效果 */
+    transition: transform 0.5s; /* 平滑變換效果 */
+    position: relative; /* 確保正確定位 */
+}
+
+.module-inner {
+    position: relative;
+    width: 100%;
+    height: 150px; /* 模塊高度 */
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.module-front, .module-back {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-front {
+    background-color: #333;
+}
+
+.module-back {
+    background-color: #555;
+    transform: rotateY(180deg);
+    overflow-y: auto; /* 允許內容滾動 */
+}
+
+.flipped .module-inner {
+    transform: rotateY(180deg);
+}
+
+.module.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    transform: rotateY(0deg) !important; /* 確保翻轉到正面 */
+}
+
+.module-back {
+    background-color: #555;
+    transform: rotateY(180deg);
+ /* 允许内容滚动 */
+    padding: 20px;
+    text-align: center;/* 文本左对齐 */
+    line-height: 1.6;
+    overflow: visible; 
+    display: block;/* 设置行高提高可读性 */
+}
+
+.module-back h2, .module-back h4 {
+    margin-top: 10px; /* 在元素顶部增加空间 */
+    margin-bottom: 10px; /* 在元素底部增加空间 */
+    color: #ffcc00; /* 为标题设置颜色 */
+}
+
+.module-back h4 {
+    color: #ffffff; /* 为正文设置颜色 */
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Input Dialogs</title>
+<script>
+function getNumbersAndShowMax() {
+  // Prompt dialog boxes to get numbers
+  var firstNum = parseInt(prompt("Enter first number"), 10);
+  var secondNum = parseInt(prompt("Enter second number"), 10);
+  var thirdNum = parseInt(prompt("Enter third number"), 10);
+
+  // Check if the numbers are valid integers
+  if (!isNaN(firstNum) && !isNaN(secondNum) && !isNaN(thirdNum)) {
+    // Find the maximum number
+    var maxNum = Math.max(firstNum, secondNum, thirdNum);
+
+    // Display the maximum number
+    alert("First number: " + firstNum + "\nSecond number: " + secondNum + "\nThird number: " + thirdNum + "\nMaximum is: " + maxNum);
+  } else {
+    // If any input is not a valid number, show an error message
+    alert("Please enter valid numbers.");
+  }
+}
+</script>
+</head>
+<body>
+
+<button onclick="getNumbersAndShowMax()">Enter Numbers</button>
+
+</body>
+</html>

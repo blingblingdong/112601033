@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="kop.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>FB如何打擊虛假用戶</h1>
+</div>  
+<div class="container">
+    <div class="module" id="module1" onclick="toggleContent('module1')">
+        <div class="module-inner">
+            <div class="module-front">
+                <h2>虛假帳戶的危害</h2>
+            </div>
+            <div class="module-back">
+               
+                <h2>散播虛假信息</h2>
+                <h4>散播虛假信息：虛假帳戶可能會散播不實信息，操縱公眾意見。</h4>
+              
+               
+                <h2>詐騙與欺詐：</h2>
+                <h4>用來進行詐騙或金錢勒索</h4>
+                <br>
+
+               
+                <h2>影響數據準確性：</h2>
+                <h4>假帳戶扭曲使用者行為數據，影響廣告和市場分析的準確性。</h4>
+     
+               
+                <h2>侵犯隱私與安全：</h2>
+                <h4>被用來監視、騷擾或竊取真實使用者的個人信息。</h4>
+             
+            </div>
+        </div>
+    </div>
+
+    <div class="module" id="module2" onclick="toggleContent('module2')">
+        <div class="module-inner">
+            <div class="module-front">
+                <h2>FB的AI應用</h2>
+            </div>
+            <div class="module-back">
+                [這裡放置關於FB的AI應用的詳細內容]
+            </div>
+        </div>
+    </div>
+
+    <div class="module" id="module3" onclick="toggleContent('module3')">
+        <div class="module-inner">
+            <div class="module-front">
+                <h2>AI應用的技術</h2>
+            </div>
+            <div class="module-back">
+                [這裡放置關於AI應用的技術的詳細內容]
+            </div>
+        </div>
+    </div>
+
+    <div class="module" id="module4" onclick="toggleContent('module4')">
+        <div class="module-inner">
+            <div class="module-front">
+                <h2>好處與壞處</h2>
+            </div>
+            <div class="module-back">
+                [這裡放置關於AI應用的好處與壞處的詳細內容]
+            </div>
+        </div>
+    </div>
+
+    <div class="module" id="module5" onclick="toggleContent('module5')">
+        <div class="module-inner">
+            <div class="module-front">
+                <h2>未來的改進</h2>
+            </div>
+            <div class="module-back">
+                [這裡放置關於未來技術改進的詳細內容]
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleContent(moduleId) {
+    var module = document.getElementById(moduleId);
+    var isFullscreen = module.classList.contains('fullscreen');
+
+    // 如果當前模塊已經是全屏，則翻轉並退出全屏
+    if (isFullscreen) {
+        module.classList.remove('fullscreen');
+        module.classList.toggle('flipped');
+    } else {
+        // 如果當前模塊不是全屏，則先退出所有其他全屏，再將當前模塊設為全屏
+        var allModules = document.querySelectorAll('.module');
+        allModules.forEach(function(mod) {
+            mod.classList.remove('fullscreen');
+            mod.classList.remove('flipped');
+        });
+        module.classList.add('fullscreen');
+        module.classList.add('flipped');
+    }
+}
+
+</script>
+
+</body>
+</html>
